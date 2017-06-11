@@ -1,21 +1,34 @@
 package com.ojam1;
 
 class FizzBuzz {
-    static void fizzBuzzer(int x) {
+    private static String s;
+
+    static String fizzBuzzer(int x) {
         if (fizzBuzzChecker(x)) {
             if (x % 3 == 0 && x % 5 == 0) {
                 System.out.println("FizzBuzz");
+                return "FizzBuzz";
             } else if (x % 3 == 0) {
                 System.out.println("Fizz");
-            } else System.out.println("Buzz");
-        } else if (fizzBuzzChecker2(x));
-        else System.out.println(x);
+                return "Fizz";
+            } else {
+                System.out.println("Buzz");
+                return "Buzz";
+            }
+        } else if (fizzBuzzChecker2(x))
+        {
+            System.out.println(s);
+            return s;
+        }
+        else {
+            System.out.println(x);
+            return Integer.toString(x);
+        }
     }
 
     private static boolean fizzBuzzChecker2(int x) {
         boolean found = false;
         int count = 0;
-        String s = "";
         String intAsString = Integer.toString(x);
         for (int i = 0; i < intAsString.length(); i++) {
             if (intAsString.charAt(i) == '3') {
@@ -28,12 +41,9 @@ class FizzBuzz {
                 count++;
             }
         }
-        if (count > 0) {
-            if (count > 1) {
+        if (count > 1) {
                 s = "FizzBuzz";
-                System.out.println(s);
-            } else System.out.println(s);
-        }
+            }
         return found;
     }
 
@@ -44,7 +54,7 @@ class FizzBuzz {
 
 class Main {
     public static void main(String[] args) {
-        for (int i = 1; i <= 1000; i++) {
+        for (int i = 1; i <= 100; i++) {
             FizzBuzz.fizzBuzzer(i);
         }
     }
